@@ -1,0 +1,65 @@
+#telemetry#
+fetch AngleSensor angle shipAngle;
+fetch S1 value holdToggle;
+fetch DS distance groundDistance;
+fetch VS vertical vv;
+fetch BJ value jettison
+#main#
+branch jettison NOJET;
+B1Detach detach;
+B2Detach detach;
+lbl NOJET;
+compare shipAngle 180 rightTilted;
+compare vv 0 ascending;
+branch ascending MANUAL;
+branch holdToggle AUTON;
+lbl MANUAL;
+E1 shutdown;
+E2 shutdown;
+E1 bind a;
+E2 bind d;
+CenterEngine bind w;
+loop;
+
+lbl AUTON;
+E1 unbind;
+E2 unbind;
+
+fetch AngleSensor angle angle;
+compare 180 shipAngle isLeftAngle;
+branch isLeftAngle STABILIZE;
+Math subtract shipAngle 360;
+fetch Math result angle;
+lbl STABILIZE;
+Math multiply 10 angle;
+fetch Math result value;
+E1 set value;
+Math subtract 0 value;
+fetch Math result minusValue;
+E2 set minusValue;
+
+compare 1000 groundDistance close;
+branch close LAND;
+loop;
+
+lbl LAND;
+compare 2 groundDistance atGround;
+branch atGround MANUAL;
+print vv;
+compare vv -5 notDescending;
+print notDescending;
+branch notDescending ZERO;
+CenterEngine unbind;
+CenterEngine startup;
+
+loop;
+lbl ZERO;
+CenterEngine shutdown;
+#boot#
+CenterEngine bind w;
+fetch AngleSensor angle shipAngle;
+fetch DS distance groundDistance;
+S1 bind space;
+BJ bind j;
+fetch BJ value jettison;
+fetch S1 value holdToggle;
