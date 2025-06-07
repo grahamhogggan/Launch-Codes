@@ -171,7 +171,7 @@ public class Vehicle : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Error: Label not found");
+                    //Debug.Log("Error: Label not found");
                 }
             }
         }

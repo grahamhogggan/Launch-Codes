@@ -3,9 +3,9 @@ fetch AngleSensor angle shipAngle;
 fetch S1 value holdToggle;
 fetch DS distance groundDistance;
 fetch VS vertical vv;
-fetch BJ value jettison
+//fetch BJ value jettison;
 #main#
-branch jettison NOJET;
+//branch jettison NOJET;
 B1Detach detach;
 B2Detach detach;
 lbl NOJET;
@@ -45,9 +45,7 @@ loop;
 lbl LAND;
 compare 2 groundDistance atGround;
 branch atGround MANUAL;
-print vv;
 compare vv -5 notDescending;
-print notDescending;
 branch notDescending ZERO;
 CenterEngine unbind;
 CenterEngine startup;
@@ -61,5 +59,5 @@ fetch AngleSensor angle shipAngle;
 fetch DS distance groundDistance;
 S1 bind space;
 BJ bind j;
-fetch BJ value jettison;
+//fetch BJ value jettison;
 fetch S1 value holdToggle;
