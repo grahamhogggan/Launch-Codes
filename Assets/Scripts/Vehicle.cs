@@ -15,7 +15,7 @@ public class Vehicle : MonoBehaviour
     private string[] telemetryCode;
     public Vector2 centerOfMassOffset;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         GetComponent<Rigidbody2D>().centerOfMass = centerOfMassOffset;
         Components = new List<Component>(GetComponentsInChildren<Component>());
