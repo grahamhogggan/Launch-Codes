@@ -10,6 +10,9 @@ public class Fin : Component
     private string? keyB;
     public float rotationAngle;
     private Quaternion homeRotation;
+    Vector3 forceVector;
+    float X;
+    float Y;
     public override void InitializeComponent()
     {
         base.InitializeComponent();
@@ -37,11 +40,13 @@ public class Fin : Component
         {
             return;
         }
-        float mainAngle = Vector2.Angle(up, velocity) * 3.14195f / 180;
+        float mainAngle = Vector2.SignedAngle(up, velocity) * 3.14195f / 180;
         //Debug.Log(up + "," + velocity);
         //Debug.Log(mainAngle);
         float VX = Mathf.Cos(mainAngle) * velocity.magnitude;
+        X = VX;
         float VY = Mathf.Sin(mainAngle) * velocity.magnitude;
+        Y = VY;
         // Debug.Log(VX + ", " + VY);
 
         Vector2 newVelocity = up.normalized * VX + (Vector2)transform.right.normalized * -1 * VY * (1 - finPower * deltaTime);
@@ -50,8 +55,9 @@ public class Fin : Component
         float force = VY;
         float angle = Vector3.SignedAngle(transform.right, vehicle.transform.position - transform.position, transform.forward) * Mathf.PI / 180;
         float moment = Vector3.Distance(transform.position, vehicle.transform.position) * Mathf.Sin(angle);
-        vehicleBody.AddTorque(moment * deltaTime * force* rotationalSize);
-
+        vehicleBody.AddTorque(moment * deltaTime * force * rotationalSize);
+        Debug.Log(moment * deltaTime * force * rotationalSize);
+        forceVector = transform.right * force;
 
     }
     public override void ReceiveCommand(string command)
@@ -68,5 +74,16 @@ public class Fin : Component
                 keyB = tokens[2];
             }
         }
+    }
+    void OnDrawGizmos()
+    {
+        if (!Application.isPlaying) return;
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + forceVector);
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + (Vector3)vehicleBody.velocity);
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.position + transform.up * X);
+        Gizmos.DrawLine(transform.position + transform.up * X, transform.position + transform.up * X-transform.right * Y);
     }
 }
