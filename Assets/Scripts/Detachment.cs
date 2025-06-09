@@ -6,6 +6,7 @@ public class Detachment : Component
 {
     public GameObject[] AssociatedComponents;
     private float angle;
+    public AudioSource src;
     public override void InitializeComponent()
     {
         base.InitializeComponent();
@@ -25,6 +26,14 @@ public class Detachment : Component
             foreach (Component c in GetComponentsInChildren<Component>())
             {
                 vehicle.GetComponent<Vehicle>().Components.Remove(c);
+            }
+            foreach (AudioSource src in GetComponentsInChildren<AudioSource>())
+            {
+                src.Stop();
+            }
+            if (src != null)
+            {
+                src.Play();
             }
             transform.parent = null;
             Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();

@@ -7,6 +7,7 @@ public class Engine : Component
     public float thrust;
     public float actualThrust;
     private string? bindKey = null;
+    public AudioSource sound;
 
     public GameObject indicator;
     public override void InitializeComponent()
@@ -30,10 +31,16 @@ public class Engine : Component
         if (actualThrust > 0)
         {
             indicator.SetActive(true);
+            if (sound!=null&&!sound.isPlaying)
+            {
+                sound.Play();
+            }
         }
         else
         {
             indicator.SetActive(false);
+            if(sound!=null)
+            sound.Stop();
         }
 
         vehicleBody.AddForce(transform.up * actualThrust * deltaTime, ForceMode2D.Force);
