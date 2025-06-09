@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fin : Component
 {
     public float finPower;
+    public float rotationalSize;
     private string? keyF;
     private string? keyB;
     public float rotationAngle;
@@ -20,15 +21,15 @@ public class Fin : Component
     {
         if (keyF != null && Input.GetKey(keyF))
         {
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(0, 0, rotationAngle),deltaTime)*homeRotation;
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(0, 0, rotationAngle), deltaTime) * homeRotation;
         }
         else if (keyB != null && Input.GetKey(keyB))
         {
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(0, 0, -rotationAngle),deltaTime)*homeRotation;
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(0, 0, -rotationAngle), deltaTime) * homeRotation;
         }
         else
         {
-            transform.localRotation = Quaternion.Lerp(transform.localRotation, homeRotation,deltaTime);
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, homeRotation, deltaTime);
         }
         Vector2 up = transform.up;
         Vector2 velocity = (Vector2)vehicleBody.velocity;
@@ -37,15 +38,20 @@ public class Fin : Component
             return;
         }
         float mainAngle = Vector2.Angle(up, velocity) * 3.14195f / 180;
-        Debug.Log(up + "," + velocity);
+        //Debug.Log(up + "," + velocity);
         //Debug.Log(mainAngle);
         float VX = Mathf.Cos(mainAngle) * velocity.magnitude;
         float VY = Mathf.Sin(mainAngle) * velocity.magnitude;
-        Debug.Log(VX + ", " + VY);
+        // Debug.Log(VX + ", " + VY);
 
         Vector2 newVelocity = up.normalized * VX + (Vector2)transform.right.normalized * -1 * VY * (1 - finPower * deltaTime);
         vehicleBody.velocity = newVelocity;
-        Debug.Log(newVelocity);
+        //Debug.Log(newVelocity);
+        float force = VY;
+        float angle = Vector3.SignedAngle(transform.right, vehicle.transform.position - transform.position, transform.forward) * Mathf.PI / 180;
+        float moment = Vector3.Distance(transform.position, vehicle.transform.position) * Mathf.Sin(angle);
+        vehicleBody.AddTorque(moment * deltaTime * force* rotationalSize);
+
 
     }
     public override void ReceiveCommand(string command)
