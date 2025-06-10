@@ -2182,6 +2182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73c9bce105ec694cbbb6d6da6e051d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vehicleIdentifier: Starship
   Components: []
   commandClockSpeed: 1
   codeFiles:

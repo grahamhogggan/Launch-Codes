@@ -13,7 +13,7 @@ public class Engine : Component
     public override void InitializeComponent()
     {
         base.InitializeComponent();
-        actualThrust = thrust;
+        actualThrust = 0;
     }
     public override void UpdateComponent(float deltaTime)
     {

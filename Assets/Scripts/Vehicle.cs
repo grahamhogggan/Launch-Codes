@@ -1,22 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.IO;
+using System.Linq;
 public class Vehicle : MonoBehaviour
 {
+    public string vehicleIdentifier;
     public List<Component> Components;
     public float commandClockSpeed = 0.1f;
     private double commandClock;
-    public TextAsset[] codeFiles;
+    public string[] codeFiles;
     private List<string[]> codeStack = new List<string[]>();
     private List<int> codeLines = new List<int>();
     private Dictionary<string, float> variables = new Dictionary<string, float>();
 
     private string[] telemetryCode;
     public Vector2 centerOfMassOffset;
+    public string mainCodePath;
     // Start is called before the first frame update
     public void Start()
     {
+        string dir = Application.dataPath+"/CODE/"+vehicleIdentifier;
+        mainCodePath = dir+"/main.txt";
+        if(!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
+        IEnumerable<string> codeFileNamesIE = Directory.EnumerateFiles(dir);
+        List<string> codeFileNames = codeFileNamesIE.ToList();
+        codeFiles = new string[codeFileNames.Count];
+        for(int i = 0; i<codeFileNames.Count; i++)
+        {
+            codeFiles[i] = File.ReadAllText(codeFileNames[i]);
+        }
+        if(codeFiles.Length<1)
+        {
+            string templateMain = "#telemetry#\n\n#main#\n\n#boot#";
+            File.WriteAllText(mainCodePath,templateMain);
+            codeFiles = new string[1];
+            codeFiles[0] = templateMain;
+        }
         GetComponent<Rigidbody2D>().centerOfMass = centerOfMassOffset;
         Components = new List<Component>(GetComponentsInChildren<Component>());
         foreach (Component component in Components)
@@ -24,6 +47,9 @@ public class Vehicle : MonoBehaviour
             component.InitializeComponent();
         }
         commandClock = 0;
+        codeStack = new List<string[]>();
+        codeLines = new List<int>();
+        variables = new Dictionary<string, float>();
         codeStack.Add(CreateBlockCode(codeFiles[0], "main"));
         codeLines.Add(0);
 
@@ -80,9 +106,9 @@ public class Vehicle : MonoBehaviour
         if (tokens[0] == "call")
         {
             string functionCalled = tokens[1];
-            foreach (TextAsset asset in codeFiles)
+            foreach (string asset in codeFiles)
             {
-                if (asset.name == functionCalled)
+                if (asset.Split("#")[1] == functionCalled)
                 {
                     codeStack.Insert(0, CreateCode(asset));
                     codeLines.Insert(0, 0);
@@ -230,9 +256,8 @@ public class Vehicle : MonoBehaviour
         }
         return null;
     }
-    private string[] CreateCode(TextAsset rawText)
+    private string[] CreateCode(string rawCode)
     {
-        string rawCode = rawText.text;
         rawCode = rawCode.Replace("\n", " ");
         string[] theCode = rawCode.Split(";");
         return theCode;
@@ -248,9 +273,8 @@ public class Vehicle : MonoBehaviour
             variables.Add(varName, value);
         }
     }
-    private string[] CreateBlockCode(TextAsset rawText, string block)
+    private string[] CreateBlockCode(string rawCode, string block)
     {
-        string rawCode = rawText.text;
         rawCode = rawCode.Replace("\n", " ");
         string[] segments = rawCode.Split("#");
         int mainblockstart = System.Array.IndexOf(segments, block);

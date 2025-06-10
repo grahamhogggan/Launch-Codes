@@ -1,0 +1,14 @@
+#telemetry#
+fetch BJ value jet;
+#main#
+branch jet END;
+B1Detach detach;
+delay 2;
+B2Detach detach;
+lbl END;
+#boot#
+E1 bind a;
+E2 bind d;
+BJ bind tab;
+fetch BJ value jet;
+CenterEngine bind w;

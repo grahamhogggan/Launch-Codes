@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
 public class EditCodeButton : MonoBehaviour
 {
     public TMP_InputField editor;
     private bool editorActive;
-    private TextAsset[] code;
+    private string[] code;
     private Vehicle v;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class EditCodeButton : MonoBehaviour
     {
         if (editorActive)
         {
-        code[0] = new TextAsset(editor.text);
+            code[0] = (editor.text);
         }
     }
     public void ToggleEditor()
@@ -30,13 +31,21 @@ public class EditCodeButton : MonoBehaviour
         {
             editor.gameObject.SetActive(false);
             editorActive = false;
-            v.Start();
         }
         else
         {
             editor.gameObject.SetActive(true);
             editorActive = true;
-            editor.text = code[0].ToString();
+            editor.text = code[0];
         }
+    }
+    public void Save()
+    {
+        if (editorActive)
+        {
+            File.WriteAllText(v.mainCodePath, editor.text);
+            v.Start();
+        }
+
     }
 }
