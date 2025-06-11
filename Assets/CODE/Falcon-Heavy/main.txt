@@ -1,11 +1,15 @@
 #telemetry#
 fetch BJ value jet;
+
 #main#
 branch jet END;
 B1Detach detach;
-delay 2;
+delay 0.1;
 B2Detach detach;
+Fin bind forward d;
+Fin bind backward a;
 lbl END;
+
 #boot#
 E1 bind a;
 E2 bind d;
