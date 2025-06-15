@@ -56,7 +56,7 @@ public class Fin : Component
         float angle = Vector3.SignedAngle(transform.right, vehicle.transform.position - transform.position, transform.forward) * Mathf.PI / 180;
         float moment = Vector3.Distance(transform.position, vehicle.transform.position) * Mathf.Sin(angle);
         vehicleBody.AddTorque(moment * deltaTime * force * rotationalSize);
-        Debug.Log(moment * deltaTime * force * rotationalSize);
+        //Debug.Log(moment * deltaTime * force * rotationalSize);
         forceVector = transform.right * force;
 
     }

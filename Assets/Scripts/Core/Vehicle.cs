@@ -17,29 +17,39 @@ public class Vehicle : MonoBehaviour
     private string[] telemetryCode;
     public Vector2 centerOfMassOffset;
     public string mainCodePath;
+    public string codeDirectory;
     // Start is called before the first frame update
-    public void Start()
+    void Awake()
     {
-        string dir = Application.dataPath+"/CODE/"+vehicleIdentifier;
-        mainCodePath = dir+"/main.txt";
-        if(!Directory.Exists(dir))
+        codeDirectory = Application.dataPath + "/CODE/" + vehicleIdentifier;
+        mainCodePath = codeDirectory + "/main.txt";
+        if (!Directory.Exists(codeDirectory))
         {
-            Directory.CreateDirectory(dir);
+            Directory.CreateDirectory(codeDirectory);
         }
-        IEnumerable<string> codeFileNamesIE = Directory.EnumerateFiles(dir);
+        InitCodeFiles();
+
+    }
+    public void InitCodeFiles()
+    {
+        IEnumerable<string> codeFileNamesIE = Directory.EnumerateFiles(codeDirectory);
         List<string> codeFileNames = codeFileNamesIE.ToList();
         codeFiles = new string[codeFileNames.Count];
-        for(int i = 0; i<codeFileNames.Count; i++)
+        for (int i = 0; i < codeFileNames.Count; i++)
         {
             codeFiles[i] = File.ReadAllText(codeFileNames[i]);
         }
-        if(codeFiles.Length<1)
+        if (codeFiles.Length < 1)
         {
             string templateMain = "#telemetry#\n\n#main#\n\n#boot#";
-            File.WriteAllText(mainCodePath,templateMain);
+            File.WriteAllText(mainCodePath, templateMain);
             codeFiles = new string[1];
             codeFiles[0] = templateMain;
         }
+    }
+    public void Start()
+    {
+
         GetComponent<Rigidbody2D>().centerOfMass = centerOfMassOffset;
         Components = new List<Component>(GetComponentsInChildren<Component>());
         foreach (Component component in Components)
@@ -64,7 +74,7 @@ public class Vehicle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody2D>().gravityScale = 4000000 / Mathf.Pow((transform.position.y+2000),2);
+        GetComponent<Rigidbody2D>().gravityScale = 4000000 / Mathf.Pow((transform.position.y + 2000), 2);
         commandClock += Time.deltaTime;
         if (commandClock > 0)
         {
@@ -108,9 +118,10 @@ public class Vehicle : MonoBehaviour
             string functionCalled = tokens[1];
             foreach (string asset in codeFiles)
             {
+                if (asset.Split("#").Length < 3) continue;
                 if (asset.Split("#")[1] == functionCalled)
                 {
-                    codeStack.Insert(0, CreateCode(asset));
+                    codeStack.Insert(0, CreateMethod(asset));
                     codeLines.Insert(0, 0);
                 }
             }
@@ -244,7 +255,7 @@ public class Vehicle : MonoBehaviour
                 newCommand += tokens[i] + " ";
             }
             if (newCommand.Length > 0)
-            newCommand = newCommand.Substring(0, newCommand.Length - 1);
+                newCommand = newCommand.Substring(0, newCommand.Length - 1);
             componentOfInterest.ReceiveCommand(newCommand);
         }
     }
@@ -258,6 +269,13 @@ public class Vehicle : MonoBehaviour
     }
     private string[] CreateCode(string rawCode)
     {
+        rawCode = rawCode.Replace("\n", " ");
+        string[] theCode = rawCode.Split(";");
+        return theCode;
+    }
+    private string[] CreateMethod(string rawCode)
+    {
+        rawCode = rawCode.Split("#")[rawCode.Split("#").Length - 1];
         rawCode = rawCode.Replace("\n", " ");
         string[] theCode = rawCode.Split(";");
         return theCode;

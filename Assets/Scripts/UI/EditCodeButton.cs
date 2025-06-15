@@ -7,23 +7,22 @@ public class EditCodeButton : MonoBehaviour
 {
     public TMP_InputField editor;
     private bool editorActive;
-    private string[] code;
-    private Vehicle v;
+    public Vehicle v;
+    public FileSelectMenu fileMenu;
+    private string editingPath;
     // Start is called before the first frame update
     void Start()
     {
         editorActive = editor.gameObject.activeSelf;
         v = GameObject.FindGameObjectWithTag("mainVehicle").GetComponent<Vehicle>();
-        code = v.codeFiles;
+        editingPath = v.mainCodePath;
+        fileMenu.SetChoices(Directory.EnumerateFiles(v.codeDirectory));
+        fileMenu.editor = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (editorActive)
-        {
-            code[0] = (editor.text);
-        }
     }
     public void ToggleEditor()
     {
@@ -36,16 +35,28 @@ public class EditCodeButton : MonoBehaviour
         {
             editor.gameObject.SetActive(true);
             editorActive = true;
-            editor.text = code[0];
+            editor.text = File.ReadAllText(editingPath);
         }
     }
     public void Save()
     {
         if (editorActive)
         {
-            File.WriteAllText(v.mainCodePath, editor.text);
+            File.WriteAllText(editingPath, editor.text);
+            v.InitCodeFiles();
             v.Start();
         }
 
+    }
+    public void SetEditingPath(string path)
+    {
+        Save();
+        editingPath = path;
+        ToggleEditor();
+        if (!editorActive)
+        {
+            ToggleEditor();
+
+        }
     }
 }

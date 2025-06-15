@@ -1,0 +1,8 @@
+#telemetry#
+
+#main#
+
+#boot#
+E1 bind d;
+E2 bind a;
+CenterEngine bind w;
