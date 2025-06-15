@@ -1,3 +1,0 @@
-#OtherFunction#
-print function called;
-return;

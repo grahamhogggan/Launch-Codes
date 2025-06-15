@@ -16,6 +16,10 @@ public class EditCodeButton : MonoBehaviour
         editorActive = editor.gameObject.activeSelf;
         v = GameObject.FindGameObjectWithTag("mainVehicle").GetComponent<Vehicle>();
         editingPath = v.mainCodePath;
+        InitFileChoices();
+    }
+    public void InitFileChoices()
+    {
         fileMenu.SetChoices(Directory.EnumerateFiles(v.codeDirectory));
         fileMenu.editor = this;
     }

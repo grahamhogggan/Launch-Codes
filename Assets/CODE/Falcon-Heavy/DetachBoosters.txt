@@ -1,0 +1,3 @@
+#DetachBoosters#
+B1Detach detach;
+B2Detach detach;

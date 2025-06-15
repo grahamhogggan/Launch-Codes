@@ -38,6 +38,12 @@ public class Vehicle : MonoBehaviour
         for (int i = 0; i < codeFileNames.Count; i++)
         {
             codeFiles[i] = File.ReadAllText(codeFileNames[i]);
+            if (codeFileNames[i].Replace("\\","/")==mainCodePath.Replace("\\","/"))
+            {
+                Debug.Log("main found");
+                codeFiles[i] = codeFiles[0];
+                codeFiles[0] = File.ReadAllText(mainCodePath);
+            }
         }
         if (codeFiles.Length < 1)
         {
