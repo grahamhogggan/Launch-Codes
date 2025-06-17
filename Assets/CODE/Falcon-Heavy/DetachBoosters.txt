@@ -1,0 +1,5 @@
+#DetachBoosters#
+Fin bind forward d;
+Fin bind backward a;
+B1Detach detach;
+B2Detach detach;

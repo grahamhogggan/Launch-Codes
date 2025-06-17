@@ -1,0 +1,11 @@
+#FH_Boot#
+CenterEngine bind w;
+fetch AngleSensor angle shipAngle;
+fetch DS distance groundDistance;
+S1 bind space;
+BJ bind tab;
+fetch BJ value jettison;
+fetch S1 value holdToggle;
+
+Fin bind forward e;
+Fin bind backward q;
