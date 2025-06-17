@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b74c9d859a994246b6cf15f622d4915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Identifier: E2
+  Identifier: RightEngine
   thrust: 300
   actualThrust: 0
   sound: {fileID: 1005485904513807036}
@@ -2461,7 +2461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b74c9d859a994246b6cf15f622d4915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Identifier: E1
+  Identifier: LeftEngine
   thrust: 300
   actualThrust: 0
   sound: {fileID: 5105256064801685014}
@@ -2656,8 +2656,10 @@ MonoBehaviour:
   Components: []
   commandClockSpeed: 1
   codeFiles:
-  - {fileID: 4900000, guid: 997aa8c6156c8b642a81c50aa7cdcb0e, type: 3}
+  - 
   centerOfMassOffset: {x: 0, y: -1}
+  mainCodePath: 
+  codeDirectory: 
 --- !u!82 &2166787411664950400
 AudioSource:
   m_ObjectHideFlags: 0

@@ -1,0 +1,10 @@
+#telemetry#
+
+#main#
+
+#boot#
+CenterEngine bind w;
+CenterLeftEngine bind w;
+CenterRightEngine bind w;
+LeftEngine bind a;
+RightEngine bind d;

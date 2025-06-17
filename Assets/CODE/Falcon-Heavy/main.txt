@@ -13,16 +13,16 @@ compare vv 0 ascending;
 branch ascending MANUAL;
 branch holdToggle AUTON;
 lbl MANUAL;
-E1 shutdown;
-E2 shutdown;
-E1 bind a;
-E2 bind d;
+LeftEngine shutdown;
+RightEngine shutdown;
+LeftEngine bind a;
+RightEngine bind d;
 CenterEngine bind w;
 loop;
 
 lbl AUTON;
-E1 unbind;
-E2 unbind;
+LeftEngine unbind;
+RightEngine unbind;
 
 fetch AngleSensor angle angle;
 compare 180 shipAngle isLeftAngle;
@@ -32,10 +32,10 @@ fetch Math result angle;
 lbl STABILIZE;
 Math multiply 10 angle;
 fetch Math result value;
-E1 set value;
+LeftEngine set value;
 Math subtract 0 value;
 fetch Math result minusValue;
-E2 set minusValue;
+RightEngine set minusValue;
 
 compare 1000 groundDistance close;
 branch close LAND;

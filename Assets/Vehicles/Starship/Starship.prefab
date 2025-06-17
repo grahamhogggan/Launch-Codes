@@ -624,7 +624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b74c9d859a994246b6cf15f622d4915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Identifier: BCenterEngine
+  Identifier: BoosterCenterEngine
   thrust: 600
   actualThrust: 0
   sound: {fileID: 6988586504855769588}
@@ -1467,7 +1467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b74c9d859a994246b6cf15f622d4915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Identifier: E2
+  Identifier: RightEngine
   thrust: 300
   actualThrust: 0
   sound: {fileID: 8790305978424392358}
@@ -2147,7 +2147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b74c9d859a994246b6cf15f622d4915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Identifier: BE2
+  Identifier: BoosterRightEngine
   thrust: 300
   actualThrust: 0
   sound: {fileID: 1634729746892613653}
@@ -2904,7 +2904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b74c9d859a994246b6cf15f622d4915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Identifier: E1
+  Identifier: LeftEngine
   thrust: 300
   actualThrust: 0
   sound: {fileID: 7121632576918058378}
@@ -3331,7 +3331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b74c9d859a994246b6cf15f622d4915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Identifier: BE1
+  Identifier: BoosterLeftEngine
   thrust: 300
   actualThrust: 0
   sound: {fileID: 3092250568101927039}
