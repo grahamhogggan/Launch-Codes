@@ -1,8 +1,18 @@
 #telemetry#
 
 #main#
-
-#boot#
+fetch HS value hotStage;
+branch hotStage NOMINAL;
+SuperHeavy detach;
 E1 bind d;
 E2 bind a;
 CenterEngine bind w;
+Fin bind forward e;
+Fin bind forward q;
+lbl NOMINAL;
+
+#boot#
+BE1 bind d;
+BE2 bind a;
+BCenterEngine bind w;
+HS bind tab;
