@@ -10,8 +10,9 @@ Featuring these rockets:
 Starship,  
 
 These Features Coming soon (hopefully):  
->New Vehicles:  
-SLS,  
+  
+New Vehicles:  
+>SLS,  
 Falcon 9,  
 Saturn V,  
 New Glenn,  
