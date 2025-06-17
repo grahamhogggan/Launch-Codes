@@ -5,7 +5,7 @@ Guide flying behemoths through the atmosphere and into space by writing custom c
   <img src = "/Assets/IMG/Promo/Falcon Heavy.png" width = "400"> 
   <img src = "/Assets/IMG/Promo/Code.png" width = "480">   
 
-Featuring these rokets:  
+Featuring these rockets:  
 >Falcon Heavy,  
 Starship,  
 These Features Coming soon (hopefully):  
