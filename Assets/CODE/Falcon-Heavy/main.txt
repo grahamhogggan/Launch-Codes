@@ -6,8 +6,6 @@ fetch VS vertical vv;
 fetch BJ value jettison;
 #main#
 branch jettison NOJET;
-Fin bind forward d;
-Fin bind backward a;
 call DetachBoosters;
 lbl NOJET;
 compare shipAngle 180 rightTilted;

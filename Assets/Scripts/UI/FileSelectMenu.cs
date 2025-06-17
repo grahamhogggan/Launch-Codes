@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
 public class FileSelectMenu : MonoBehaviour
 {
     public EditCodeButton editor;
@@ -50,5 +51,18 @@ public class FileSelectMenu : MonoBehaviour
         string path = editor.v.codeDirectory + "/" + currentChoice + ".txt";
         //Debug.Log(path);
         editor.SetEditingPath(path);
+    }
+    public void DeleteFile()
+    {
+        string currentChoice = dropdown.captionText.text;
+        if(currentChoice == "main")
+        {
+            return;
+        }
+        string path = editor.v.codeDirectory + "/" + currentChoice + ".txt";
+        File.Delete(path);
+        dropdown.options.Remove(dropdown.options.Find(option => option.text == currentChoice));
+        dropdown.value = 0;
+        OnChoiceChanged();
     }
 }
