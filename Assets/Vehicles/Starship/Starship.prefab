@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Identifier: BoosterCenterEngine
-  thrust: 600
+  thrust: 1200
   actualThrust: 0
   sound: {fileID: 6988586504855769588}
   indicator: {fileID: 7636822274181609061}
@@ -2149,7 +2149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Identifier: BoosterRightEngine
-  thrust: 300
+  thrust: 600
   actualThrust: 0
   sound: {fileID: 1634729746892613653}
   indicator: {fileID: 5200689373122343874}
@@ -3333,7 +3333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Identifier: BoosterLeftEngine
-  thrust: 300
+  thrust: 600
   actualThrust: 0
   sound: {fileID: 3092250568101927039}
   indicator: {fileID: 5935548709687413893}
