@@ -52,6 +52,7 @@ CenterEngine startup;
 loop;
 lbl ZERO;
 CenterEngine shutdown;
+#scheduler#
 #boot#
 CenterEngine bind w;
 fetch AngleSensor angle shipAngle;

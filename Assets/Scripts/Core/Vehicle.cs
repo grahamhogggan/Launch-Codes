@@ -15,6 +15,10 @@ public class Vehicle : MonoBehaviour
     private Dictionary<string, float> variables = new Dictionary<string, float>();
 
     private string[] telemetryCode;
+    private string[] schedulerCode;
+    private double schedulerDelay;
+    private double schedulerClock;
+    private int schedulerLine = 0;
     public Vector2 centerOfMassOffset;
     public string mainCodePath;
     public string codeDirectory;
@@ -47,7 +51,7 @@ public class Vehicle : MonoBehaviour
         }
         if (codeFiles.Length < 1)
         {
-            string templateMain = "#telemetry#\n\n#main#\n\n#boot#";
+            string templateMain = "#telemetry#\n\n#main#\n\n#boot#\n\n#scheduler#";
             File.WriteAllText(mainCodePath, templateMain);
             codeFiles = new string[1];
             codeFiles[0] = templateMain;
@@ -70,11 +74,15 @@ public class Vehicle : MonoBehaviour
         codeLines.Add(0);
 
         telemetryCode = CreateBlockCode(codeFiles[0], "telemetry");
+        schedulerCode = CreateBlockCode(codeFiles[0], "scheduler");
         string[] boot = CreateBlockCode(codeFiles[0], "boot");
         foreach (string str in boot)
         {
             SendCommand(str);
         }
+        schedulerDelay = 0;
+        schedulerClock = 0;
+        schedulerLine = 0;
     }
     public void RecalulateCenterOfMass(Vector2 newCenterOfMass)
     {
@@ -86,16 +94,12 @@ public class Vehicle : MonoBehaviour
     void Update()
     {
         GetComponent<Rigidbody2D>().gravityScale = 4000000 / Mathf.Pow((transform.position.y + 2000), 2);
-        commandClock += Time.deltaTime;
-        if (commandClock > 0)
-        {
             codeLines[0]++;
             SendCommand(codeStack[0][codeLines[0] - 1]);
             if (codeLines[0] >= codeStack[0].Length)
             {
                 codeLines[0] = 0;
             }
-        }
         foreach (Component component in Components)
         {
             component.UpdateComponent(Time.deltaTime);
@@ -104,7 +108,18 @@ public class Vehicle : MonoBehaviour
         {
             SendCommand(str.Replace("delay", "???"));
         }
-
+        schedulerClock += Time.deltaTime;
+        if (schedulerClock > schedulerDelay)
+        {
+            schedulerClock = 0;
+            schedulerDelay = 0;
+            SendCommand(schedulerCode[schedulerLine]);
+            schedulerLine++;
+        }
+        if (schedulerLine >= schedulerCode.Length)
+        {
+            schedulerLine = 0;
+        }
     }
     public void SendCommand(string command)
     {
@@ -167,7 +182,7 @@ public class Vehicle : MonoBehaviour
                 command = command.Replace(key, variables[key].ToString());
             }
             tokens = command.Split(" ");
-            commandClock = -1 * commandClockSpeed * double.Parse(tokens[1]);
+            schedulerDelay = commandClockSpeed * double.Parse(tokens[1]);
         }
         if (tokens[0] == "compare")
         {

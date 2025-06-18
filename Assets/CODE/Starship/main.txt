@@ -1,3 +1,4 @@
+
 #telemetry#
 
 #main#
@@ -11,6 +12,14 @@ Fin bind forward e;
 Fin bind forward q;
 lbl NOMINAL;
 
+#scheduler#
+delay 20;
+SuperHeavy detach;
+LeftEngine bind d;
+RightEngine bind a;
+CenterEngine bind w;
+Fin bind forward e;
+Fin bind forward q;
 #boot#
 BoosterLeftEngine bind d;
 BoosterRightEngine bind a;
