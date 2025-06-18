@@ -9,7 +9,7 @@ public class VehicleSpawner : MonoBehaviour
     public static int currentVehicle = 0;
     public Vector3 spawnPoint;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Instantiate(vehicles[currentVehicle], spawnPoint, Quaternion.identity);
     }

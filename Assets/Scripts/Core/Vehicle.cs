@@ -56,7 +56,7 @@ public class Vehicle : MonoBehaviour
     public void Start()
     {
 
-        GetComponent<Rigidbody2D>().centerOfMass = centerOfMassOffset;
+        RecalulateCenterOfMass(centerOfMassOffset); 
         Components = new List<Component>(GetComponentsInChildren<Component>());
         foreach (Component component in Components)
         {
@@ -75,6 +75,11 @@ public class Vehicle : MonoBehaviour
         {
             SendCommand(str);
         }
+    }
+    public void RecalulateCenterOfMass(Vector2 newCenterOfMass)
+    {
+        centerOfMassOffset = newCenterOfMass;
+        GetComponent<Rigidbody2D>().centerOfMass = (Vector2)centerOfMassOffset;
     }
 
     // Update is called once per frame
@@ -305,5 +310,10 @@ public class Vehicle : MonoBehaviour
         string interestingBlock = segments[mainblockstart + 1];
         string[] theCode = interestingBlock.Split(";");
         return theCode;
+    }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position+transform.TransformDirection((Vector3)centerOfMassOffset), 1);
     }
 }
