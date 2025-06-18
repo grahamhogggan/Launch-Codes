@@ -4,22 +4,12 @@
 #main#
 fetch HS value hotStage;
 branch hotStage NOMINAL;
-SuperHeavy detach;
-LeftEngine bind d;
-RightEngine bind a;
-CenterEngine bind w;
-Fin bind forward e;
-Fin bind forward q;
+call HotStage;
 lbl NOMINAL;
 
 #scheduler#
 delay 20;
-SuperHeavy detach;
-LeftEngine bind d;
-RightEngine bind a;
-CenterEngine bind w;
-Fin bind forward e;
-Fin bind forward q;
+call HotStage;
 #boot#
 BoosterLeftEngine bind d;
 BoosterRightEngine bind a;

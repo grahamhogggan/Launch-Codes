@@ -53,6 +53,8 @@ loop;
 lbl ZERO;
 CenterEngine shutdown;
 #scheduler#
+delay 10;
+call  DetachBoosters
 #boot#
 CenterEngine bind w;
 fetch AngleSensor angle shipAngle;

@@ -22,6 +22,7 @@ public class Vehicle : MonoBehaviour
     public Vector2 centerOfMassOffset;
     public string mainCodePath;
     public string codeDirectory;
+    public GameObject explosionPrefab;
     // Start is called before the first frame update
     void Awake()
     {
@@ -330,5 +331,12 @@ public class Vehicle : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position+transform.TransformDirection((Vector3)centerOfMassOffset), 1);
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(GetComponent<Rigidbody2D>().velocity.magnitude > 5)
+        {
+            Instantiate(explosionPrefab, collision.contacts[0].point, Quaternion.identity);
+        }
     }
 }

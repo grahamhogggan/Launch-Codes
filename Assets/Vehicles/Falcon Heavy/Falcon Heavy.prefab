@@ -1688,6 +1688,7 @@ MonoBehaviour:
   - {fileID: 6713793926627745134}
   - {fileID: 4327300251232950640}
   src: {fileID: 2166787411664950400}
+  centerOfMassChange: {x: 0, y: 0}
 --- !u!1 &5677554898273585802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,6 +1837,7 @@ MonoBehaviour:
   - {fileID: 7093548374824786985}
   - {fileID: 7254478744278170484}
   src: {fileID: 2166787411664950400}
+  centerOfMassChange: {x: 0, y: 0}
 --- !u!1 &5855165563450678445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,6 +2662,7 @@ MonoBehaviour:
   centerOfMassOffset: {x: 0, y: -1}
   mainCodePath: 
   codeDirectory: 
+  explosionPrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
 --- !u!82 &2166787411664950400
 AudioSource:
   m_ObjectHideFlags: 0

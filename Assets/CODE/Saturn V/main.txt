@@ -1,12 +1,7 @@
 #telemetry#
 
 #main#
-#scheduler#
-delay 5;
-CenterEngine unbind;
-CenterEngine shutdown;
-delay 5;
-CenterEngine startup;
+#scheduler#;
 #boot#
 CenterEngine bind w;
 CenterLeftEngine bind w;
