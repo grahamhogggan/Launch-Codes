@@ -129,6 +129,7 @@ public class Vehicle : MonoBehaviour
         {
             command = command.Replace("  ", " ");
         }
+        command = command.Replace("deltaTime", Time.deltaTime.ToString());
         command = command.Trim();
         string[] tokens = command.Split(" ");
         if (tokens[0] == "loop")
@@ -183,6 +184,7 @@ public class Vehicle : MonoBehaviour
                 command = command.Replace(key, variables[key].ToString());
             }
             tokens = command.Split(" ");
+            schedulerClock = 0; 
             schedulerDelay = commandClockSpeed * double.Parse(tokens[1]);
         }
         if (tokens[0] == "compare")
@@ -334,7 +336,7 @@ public class Vehicle : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(GetComponent<Rigidbody2D>().velocity.magnitude > 5)
+        if(collision.relativeVelocity.magnitude > 10)
         {
             Instantiate(explosionPrefab, collision.contacts[0].point, Quaternion.identity);
         }

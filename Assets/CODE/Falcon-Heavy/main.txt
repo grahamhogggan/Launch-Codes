@@ -1,68 +1,28 @@
 #telemetry#
 fetch AngleSensor angle shipAngle;
-fetch S1 value holdToggle;
+fetch S1 value stay;
 fetch DS distance groundDistance;
 fetch VS vertical vv;
 fetch BJ value jettison;
 #main#
-branch jettison NOJET;
-call DetachBoosters;
-lbl NOJET;
-compare shipAngle 180 rightTilted;
-compare vv 0 ascending;
-branch ascending MANUAL;
-branch holdToggle AUTON;
-lbl MANUAL;
-LeftEngine shutdown;
-RightEngine shutdown;
-LeftEngine bind a;
-RightEngine bind d;
-CenterEngine bind w;
-loop;
+branch stay STAY;
+delay 0.1;
+lbl STAY;
 
-lbl AUTON;
-LeftEngine unbind;
-RightEngine unbind;
-
-fetch AngleSensor angle angle;
-compare 180 shipAngle isLeftAngle;
-branch isLeftAngle STABILIZE;
-Math subtract shipAngle 360;
-fetch Math result angle;
-lbl STABILIZE;
-Math multiply 10 angle;
-fetch Math result value;
-LeftEngine set value;
-Math subtract 0 value;
-fetch Math result minusValue;
-RightEngine set minusValue;
-
-compare 1000 groundDistance close;
-branch close LAND;
-loop;
-
-lbl LAND;
-compare 2 groundDistance atGround;
-branch atGround MANUAL;
-compare vv -5 notDescending;
-branch notDescending ZERO;
-CenterEngine unbind;
-CenterEngine startup;
-
-loop;
-lbl ZERO;
-CenterEngine shutdown;
 #scheduler#
-delay 10;
-call  DetachBoosters
+delay 15;
+call DetachBoosters
+
 #boot#
 CenterEngine bind w;
+LeftEngine bind a;
+RightEngine bind d;
 fetch AngleSensor angle shipAngle;
 fetch DS distance groundDistance;
 S1 bind space;
 BJ bind tab;
 fetch BJ value jettison;
-fetch S1 value holdToggle;
+fetch S1 value stay;
 
 Fin bind forward e;
 Fin bind backward q;
