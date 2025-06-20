@@ -9,15 +9,15 @@ Guide flying behemoths through the atmosphere and into space by writing custom c
 
 Featuring these rockets:  
 >Falcon Heavy,  
-Starship,  
-
+Starship,   
+New Glenn,  
+Saturn V
+>
 These Features Coming soon (hopefully):  
   
 New Vehicles:  
 >SLS,  
-Falcon 9,  
-Saturn V,  
-New Glenn,  
+Falcon 9,    
 Soyuz,  
   
 New Code Features:  
