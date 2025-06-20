@@ -8,6 +8,8 @@ public class Detachment : Component
     private float angle;
     public AudioSource src;
     public Vector2 centerOfMassChange;
+    public GameObject[] DestructableParts;
+    public GameObject[] ShowParts;
     public override void InitializeComponent()
     {
         base.InitializeComponent();
@@ -46,8 +48,14 @@ public class Detachment : Component
             }
             vehicleBody.MovePosition(vehicle.transform.position+vehicle.transform.TransformDirection((Vector3)centerOfMassChange));
             vehicleBody.MoveRotation(vehicle.transform.rotation);
-
-
+            foreach (GameObject obj in DestructableParts)
+            {
+                Destroy(obj);
+            }
+            foreach (GameObject obj in ShowParts)
+            {
+                obj.SetActive(true);
+            }
             
             Destroy(this);
             

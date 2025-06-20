@@ -1,6 +1,21 @@
 #telemetry#
 
 #main#
+fetch Stage value val;
+branch val NOMINAL;
+Booster detach;
+CsmEngine bind w;
+C-RCS-L bind a;
+C-RCS-R bind d;
+Stage2 bind tab;
+fetch Stage2 value val2;
+branch val2 NOMINAL;
+CSM-detach detach;
+LanderEngine bind w;
+L-RCS-L bind a;
+L-RCS-R bind d;
+lbl NOMINAL;
+
 #scheduler#;
 #boot#
 CenterEngine bind w;
@@ -8,3 +23,4 @@ CenterLeftEngine bind w;
 CenterRightEngine bind w;
 LeftEngine bind a;
 RightEngine bind d;
+Stage bind tab; 
