@@ -1,0 +1,15 @@
+#telemetry#
+
+#main#
+fetch Stage value stg;
+branch stg NOMINAL;
+Booster detach;
+LeftEngine bind a;
+RightEngine bind d;
+lbl NOMINAL;
+#boot#
+BoosterCenterEngine bind w;
+BoosterLeftEngine bind a;
+BoosterRightEngine bind d;
+Stage bind tab;
+#scheduler#

@@ -336,6 +336,7 @@ public class Vehicle : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.layer == gameObject.layer) return;
         if(collision.relativeVelocity.magnitude > 10)
         {
             Instantiate(explosionPrefab, collision.contacts[0].point, Quaternion.identity);
