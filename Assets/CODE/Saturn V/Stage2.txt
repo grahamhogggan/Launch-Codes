@@ -1,0 +1,7 @@
+#Stage2#
+print Detaching CSM now;
+CSM-detach detach;
+LanderEngine bind w;
+L-RCS-L bind a;
+L-RCS-R bind d;
+return;

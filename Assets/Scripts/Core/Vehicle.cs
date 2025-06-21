@@ -8,6 +8,8 @@ public class Vehicle : MonoBehaviour
     public string vehicleIdentifier;
     public List<Component> Components;
     public float commandClockSpeed = 0.1f;
+    public float telemetrySpeed = 0.5f;
+    private float telemetryClock = 0;
     private double commandClock;
     public string[] codeFiles;
     private List<string[]> codeStack = new List<string[]>();
@@ -105,9 +107,14 @@ public class Vehicle : MonoBehaviour
         {
             component.UpdateComponent(Time.deltaTime);
         }
-        foreach (string str in telemetryCode)
+        telemetryClock += Time.deltaTime;
+        if (telemetryClock > telemetrySpeed)
         {
-            SendCommand(str.Replace("delay", "???"));
+            telemetryClock = 0;
+            foreach (string str in telemetryCode)
+            {
+                SendCommand(str.Replace("delay", "???"));
+            }
         }
         schedulerClock += Time.deltaTime;
         if (schedulerClock > schedulerDelay)
@@ -165,7 +172,7 @@ public class Vehicle : MonoBehaviour
         {
             if (variables.ContainsKey(tokens[1]))
             {
-                Debug.Log("PrintVar: " + tokens[1] + " = " + variables[tokens[1]]);
+                MessagePanel.messages.Add(tokens[1] + " = " + variables[tokens[1]]);
             }
             else
             {
@@ -174,7 +181,7 @@ public class Vehicle : MonoBehaviour
                 {
                     debug += tokens[i] + " ";
                 }
-                Debug.Log("Print: " + debug);
+                MessagePanel.messages.Add(debug);
             }
         }
         if (tokens[0] == "delay")
@@ -265,7 +272,7 @@ public class Vehicle : MonoBehaviour
             }
             else
             {
-                Debug.Log("Error: Label not found");
+                MessagePanel.messages.Add("Error: Label not found");
             }
         }
         //********Replaced variables
@@ -337,7 +344,7 @@ public class Vehicle : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.layer == gameObject.layer) return;
-        if(collision.relativeVelocity.magnitude > 10)
+        if(collision.relativeVelocity.magnitude > 20)
         {
             Instantiate(explosionPrefab, collision.contacts[0].point, Quaternion.identity);
         }

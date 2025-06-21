@@ -1,24 +1,27 @@
 #telemetry#
-
+fetch DS distance dist;
+print dist;
 #main#
+
+loop;
+
+//manual staging
+
 fetch Stage value val;
 branch val NOMINAL;
-Booster detach;
-CsmEngine bind w;
-C-RCS-L bind a;
-C-RCS-R bind d;
+call Stage1;
 fetch Stage2 value val2;
-delay 1;
+print val2;
 branch val2 NOMINAL;
-CSM-detach detach;
-LanderEngine bind w;
-L-RCS-L bind a;
-L-RCS-R bind d;
+call Stage2;
 lbl NOMINAL;
 
 #scheduler#;
+delay 10;
+call Stage1;
+delay 15;
+call Stage2;
 delay 999;
-Stage2 bind tab;
 #boot#
 CenterEngine bind w;
 CenterLeftEngine bind w;
@@ -26,4 +29,3 @@ CenterRightEngine bind w;
 LeftEngine bind a;
 RightEngine bind d;
 Stage bind tab; 
-Stage2 bind ?;

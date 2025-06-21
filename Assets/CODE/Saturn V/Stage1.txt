@@ -1,0 +1,8 @@
+#Stage1#
+print Detaching Booster Now;
+Booster detach;
+CsmEngine bind w;
+C-RCS-L bind a;
+C-RCS-R bind d;
+Stage2 bind tab;
+return;
