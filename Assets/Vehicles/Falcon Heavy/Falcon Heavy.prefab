@@ -658,7 +658,7 @@ GameObject:
   - component: {fileID: 5719477447599628309}
   - component: {fileID: 4363129711280454302}
   - component: {fileID: 4029636006404432505}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b74c9d859a994246b6cf15f622d4915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Identifier: E2
+  Identifier: RightEngine
   thrust: 300
   actualThrust: 0
   sound: {fileID: 1005485904513807036}
@@ -1453,7 +1453,7 @@ GameObject:
   - component: {fileID: 7104801028038830928}
   - component: {fileID: 3100134246488557906}
   - component: {fileID: 3305419457741542587}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Math Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1688,6 +1688,7 @@ MonoBehaviour:
   - {fileID: 6713793926627745134}
   - {fileID: 4327300251232950640}
   src: {fileID: 2166787411664950400}
+  centerOfMassChange: {x: 0, y: 0}
 --- !u!1 &5677554898273585802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,6 +1837,7 @@ MonoBehaviour:
   - {fileID: 7093548374824786985}
   - {fileID: 7254478744278170484}
   src: {fileID: 2166787411664950400}
+  centerOfMassChange: {x: 0, y: 0}
 --- !u!1 &5855165563450678445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,7 +1848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2096684741252885137}
   - component: {fileID: 329161203168295125}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FH_CORE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2060,7 +2062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 405283619296450081}
   - component: {fileID: 5612501316711715273}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BoosterR_PNG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2242,7 +2244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8411938704008655689}
   - component: {fileID: 4365973108418659462}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BoosterL_PNG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2461,7 +2463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b74c9d859a994246b6cf15f622d4915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Identifier: E1
+  Identifier: LeftEngine
   thrust: 300
   actualThrust: 0
   sound: {fileID: 5105256064801685014}
@@ -2656,8 +2658,11 @@ MonoBehaviour:
   Components: []
   commandClockSpeed: 1
   codeFiles:
-  - {fileID: 4900000, guid: 997aa8c6156c8b642a81c50aa7cdcb0e, type: 3}
+  - 
   centerOfMassOffset: {x: 0, y: -1}
+  mainCodePath: 
+  codeDirectory: 
+  explosionPrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
 --- !u!82 &2166787411664950400
 AudioSource:
   m_ObjectHideFlags: 0

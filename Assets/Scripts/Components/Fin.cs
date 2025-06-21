@@ -77,6 +77,7 @@ public class Fin : Component
     }
     void OnDrawGizmos()
     {
+        if(vehicleBody == null) return;
         if (!Application.isPlaying) return;
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, transform.position + forceVector);

@@ -1,18 +1,17 @@
+
 #telemetry#
 
 #main#
 fetch HS value hotStage;
 branch hotStage NOMINAL;
-SuperHeavy detach;
-E1 bind d;
-E2 bind a;
-CenterEngine bind w;
-Fin bind forward e;
-Fin bind forward q;
+call HotStage;
 lbl NOMINAL;
 
+#scheduler#
+delay 20;
+call HotStage;
 #boot#
-BE1 bind d;
-BE2 bind a;
-BCenterEngine bind w;
+BoosterLeftEngine bind d;
+BoosterRightEngine bind a;
+BoosterCenterEngine bind w;
 HS bind tab;

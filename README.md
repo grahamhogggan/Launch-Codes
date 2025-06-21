@@ -2,20 +2,22 @@
 Rocket programming game in unity
   
 Guide flying behemoths through the atmosphere and into space by writing custom code to control them. A build in code editor allows you to change how the rocket is controlled.   
-  <img src = "/Assets/IMG/Promo/Falcon Heavy.png" width = "400"> 
-  <img src = "/Assets/IMG/Promo/Code.png" width = "480">   
+  <img src = "/Assets/IMG/Promo/Liftoff.png" width = "480"> 
+  <img src = "/Assets/IMG/Promo/Code.png" width = "480">  
+   <img src = "/Assets/IMG/Promo/Landing.png" width = "480"> 
+  
 
 Featuring these rockets:  
 >Falcon Heavy,  
-Starship,  
-Saturn V,
->  
+Starship,   
+New Glenn,  
+Saturn V
+>
 These Features Coming soon (hopefully):  
   
 New Vehicles:  
 >SLS,  
-Falcon 9,   
-New Glenn,  
+Falcon 9,    
 Soyuz,  
   
 New Code Features:  

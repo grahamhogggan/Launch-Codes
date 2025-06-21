@@ -7,6 +7,9 @@ public class Detachment : Component
     public GameObject[] AssociatedComponents;
     private float angle;
     public AudioSource src;
+    public Vector2 centerOfMassChange;
+    public GameObject[] DestructableParts;
+    public GameObject[] ShowParts;
     public override void InitializeComponent()
     {
         base.InitializeComponent();
@@ -38,9 +41,30 @@ public class Detachment : Component
             transform.parent = null;
             Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();
             rb.velocity = vehicleBody.velocity + (Vector2)(transform.position-vehicle.transform.position).normalized;
+            vehicle.GetComponent<Vehicle>().RecalulateCenterOfMass(new Vector2(0,0));
+            foreach(Transform stillAttached in vehicle.transform)
+            {
+                stillAttached.position+=vehicle.transform.TransformDirection(-1 * centerOfMassChange);
+            }
+            vehicleBody.MovePosition(vehicle.transform.position+vehicle.transform.TransformDirection((Vector3)centerOfMassChange));
+            vehicleBody.MoveRotation(vehicle.transform.rotation);
+            foreach (GameObject obj in DestructableParts)
+            {
+                Destroy(obj);
+            }
+            foreach (GameObject obj in ShowParts)
+            {
+                obj.SetActive(true);
+            }
+            
             Destroy(this);
             
         }
         
+    }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.parent.position+transform.parent.TransformDirection((Vector3)centerOfMassChange), 1);
     }
 }

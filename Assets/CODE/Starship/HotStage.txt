@@ -1,0 +1,5 @@
+#HotStage#
+SuperHeavy detach;
+LeftEngine bind d;
+RightEngine bind a;
+CenterEngine bind w;
