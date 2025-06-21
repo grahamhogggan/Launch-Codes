@@ -6,9 +6,9 @@ branch val NOMINAL;
 Booster detach;
 CsmEngine bind w;
 C-RCS-L bind a;
-C-RCS-R bind d;
-Stage2 bind tab;
+C-RCS-R bind d;
 fetch Stage2 value val2;
+delay 1;
 branch val2 NOMINAL;
 CSM-detach detach;
 LanderEngine bind w;
@@ -17,6 +17,8 @@ L-RCS-R bind d;
 lbl NOMINAL;
 
 #scheduler#;
+delay 999;
+Stage2 bind tab;
 #boot#
 CenterEngine bind w;
 CenterLeftEngine bind w;
@@ -24,3 +26,4 @@ CenterRightEngine bind w;
 LeftEngine bind a;
 RightEngine bind d;
 Stage bind tab; 
+Stage2 bind ?;
