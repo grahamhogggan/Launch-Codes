@@ -1,26 +1,36 @@
 #telemetry#
 fetch DS distance dist;
-print dist;
+compare 1000 dist close;
+compare dist 0 valid;
+AND close valid valid;
+AND valid landing showDist;
+printif showDist dist;
+fetch VS directional landingVelocity;
+printif landing landingVelocity;
 #main#
 
+input tab autoLand;
+AND autoLand landing runAutoLand;
+branch runAutoLand AUTOLAND;
 loop;
+lbl AUTOLAND;
+print !!Autonomous Landing!!;
+fetch VS directional descentV;
+compare descentV 5 slowdown;
+branch slowdown SLOW;
+LanderEngine bind w;
+loop;
+lbl SLOW;
+LanderEngine unbind;
+LanderEngine startup;
 
-//manual staging
-
-fetch Stage value val;
-branch val NOMINAL;
-call Stage1;
-fetch Stage2 value val2;
-print val2;
-branch val2 NOMINAL;
-call Stage2;
-lbl NOMINAL;
 
 #scheduler#;
 delay 10;
 call Stage1;
-delay 15;
+delay 20;
 call Stage2;
+set landing 1;
 delay 999;
 #boot#
 CenterEngine bind w;
@@ -29,3 +39,5 @@ CenterRightEngine bind w;
 LeftEngine bind a;
 RightEngine bind d;
 Stage bind tab; 
+set landing 0;
+set close 0;

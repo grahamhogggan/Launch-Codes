@@ -4526,8 +4526,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 638.60706, y: -938.8014}
-  m_SizeDelta: {x: 609.705, y: 1842.332}
+  m_AnchoredPosition: {x: 638.60706, y: -736.9679}
+  m_SizeDelta: {x: 609.705, y: 1438.665}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &43465426
 MonoBehaviour:
@@ -129870,7 +129870,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1

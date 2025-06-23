@@ -10,7 +10,6 @@ public class Vehicle : MonoBehaviour
     public float commandClockSpeed = 0.1f;
     public float telemetrySpeed = 0.5f;
     private float telemetryClock = 0;
-    private double commandClock;
     public string[] codeFiles;
     private List<string[]> codeStack = new List<string[]>();
     private List<int> codeLines = new List<int>();
@@ -69,7 +68,6 @@ public class Vehicle : MonoBehaviour
         {
             component.InitializeComponent();
         }
-        commandClock = 0;
         codeStack = new List<string[]>();
         codeLines = new List<int>();
         variables = new Dictionary<string, float>();
@@ -184,6 +182,115 @@ public class Vehicle : MonoBehaviour
                 MessagePanel.messages.Add(debug);
             }
         }
+        if (tokens[0] == "printif")
+        {
+            string decisionMaker = tokens[1];
+            if(variables.ContainsKey(decisionMaker)&&variables[decisionMaker] > 0)
+            {
+                if (variables.ContainsKey(tokens[2]))
+                {
+                    MessagePanel.messages.Add(tokens[2] + " = " + variables[tokens[2]]);
+                }
+                else
+                {
+                    string debug = "";
+                    for (int i = 2; i < tokens.Length; i++)
+                    {
+                        debug += tokens[i] + " ";
+                    }
+                    MessagePanel.messages.Add(debug);
+                }
+            }
+
+        }
+        if(tokens[0] == "AND")
+        {
+            string var1 = tokens[1];
+            string var2 = tokens[2];
+            string result = tokens[3];
+            if(variables.ContainsKey(var1)&&variables.ContainsKey(var2))
+            {
+                if(variables[var1] > 0 && variables[var2] > 0)
+                {
+                    SaveVariable(result, 1);
+                }
+                else
+                {
+                    SaveVariable(result, 0);
+                }
+            }
+            else
+            {
+                SaveVariable(result, 0);
+            }
+        }
+        if(tokens[0] == "OR")
+        {
+            string var1 = tokens[1];
+            string var2 = tokens[2];
+            string result = tokens[3];
+            if(variables.ContainsKey(var1)&&variables.ContainsKey(var2))
+            {
+                if(variables[var1] > 0 || variables[var2] > 0)
+                {
+                    SaveVariable(result, 1);
+                }
+                else
+                {
+                    SaveVariable(result, 0);
+                }
+            }
+            else
+            {
+                SaveVariable(result, 0);
+            }
+        }
+        if(tokens[0] == "NOT")
+        {
+            string var1 = tokens[1];
+            string result = tokens[3];
+            if(variables.ContainsKey(var1))
+            {
+                if(variables[var1] <= 0)
+                {
+                    SaveVariable(result, 1);
+                }
+                else
+                {
+                    SaveVariable(result, 0);
+                }
+            }
+            else
+            {
+                SaveVariable(result, 0);
+            }
+        }
+        if(tokens[0] == "input")
+        {
+            string inputKey = tokens[1];
+            string varToSave = tokens[2];
+            if(Input.GetKey(inputKey))
+            {
+                SaveVariable(varToSave, 1);
+            }
+            else
+            {
+                SaveVariable(varToSave, 0);
+            }
+        }
+        if(tokens[0] == "tap")
+        {
+            string inputKey = tokens[1];
+            string varToSave = tokens[2];
+            if(Input.GetKeyDown(inputKey))
+            {
+                SaveVariable(varToSave, 1);
+            }
+            else
+            {
+                SaveVariable(varToSave, 0);
+            }
+        }
         if (tokens[0] == "delay")
         {
             foreach (string key in variables.Keys)
@@ -272,8 +379,20 @@ public class Vehicle : MonoBehaviour
             }
             else
             {
-                MessagePanel.messages.Add("Error: Label not found");
+                MessagePanel.messages.Add("Error: Label "+branchPoint+" not found");
             }
+        }
+        if(tokens[0] == "set")
+        {
+            string varToSave = tokens[1];
+            foreach (string key in variables.Keys)
+            {
+                command = command.Replace(key, variables[key].ToString());
+            }
+            tokens = command.Split(" ");
+            float val = float.Parse(tokens[2]);
+            SaveVariable(varToSave, val);
+            return;
         }
         //********Replaced variables
         foreach (string key in variables.Keys)
@@ -281,6 +400,8 @@ public class Vehicle : MonoBehaviour
             command = command.Replace(key, variables[key].ToString());
         }
         tokens = command.Split(" ");
+
+
         string component = tokens[0];
         Component componentOfInterest = GetVehicleComponent(component);
         if (componentOfInterest != null)

@@ -556,7 +556,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 99
+  m_SortingOrder: 83
   m_Sprite: {fileID: 21300000, guid: c79e9b070492a0d4f9408927298cec3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4390,7 +4390,7 @@ Transform:
   m_GameObject: {fileID: 6973211731098711436}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.221, y: 10.03, z: 0}
+  m_LocalPosition: {x: -0.0319, y: 10.0206, z: 0}
   m_LocalScale: {x: 0.25207952, y: 0.51763505, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5371,7 +5371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Identifier: LanderEngine
-  thrust: 600
+  thrust: 1200
   actualThrust: 0
   sound: {fileID: 7789898146825578458}
   indicator: {fileID: 1520675889541827492}

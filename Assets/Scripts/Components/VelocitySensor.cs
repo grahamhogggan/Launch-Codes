@@ -21,6 +21,8 @@ public class VelocitySensor : Component
         if (varName == "angular") return angularVelocity;
         if (varName == "vertical") return velocity.y;
         if (varName == "horizontal") return velocity.x;
+        if(varName == "speed") return velocity.magnitude;
+        if(varName == "directional") return Mathf.Cos(3.14159f/180*Vector2.Angle(velocity, transform.up))*velocity.magnitude;
         return 0;
     }
 }
