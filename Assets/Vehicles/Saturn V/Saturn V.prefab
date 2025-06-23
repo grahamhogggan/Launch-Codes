@@ -5001,8 +5001,8 @@ Transform:
   - {fileID: 9178853133914500653}
   - {fileID: 4090956280163468098}
   - {fileID: 2856491919188407991}
-  - {fileID: 7104801028038830928}
   - {fileID: 8870184632592320185}
+  - {fileID: 7104801028038830928}
   - {fileID: 4910675868427799640}
   - {fileID: 3259034259712407812}
   - {fileID: 3585502574792124399}
@@ -5057,6 +5057,7 @@ MonoBehaviour:
   mainCodePath: 
   codeDirectory: 
   explosionPrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  tappedKeys: []
 --- !u!1 &8521870990527326443
 GameObject:
   m_ObjectHideFlags: 0

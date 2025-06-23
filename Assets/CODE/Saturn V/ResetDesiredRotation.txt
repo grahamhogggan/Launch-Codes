@@ -1,0 +1,11 @@
+#ResetDesiredRotation#
+fetch AngleSensor angle rot;
+compare rot 180 isTooBig;
+branch isTooBig FIXIT;
+goto DONT;
+lbl FIXIT;
+Math subtract rot 360;
+fetch Math result rot;
+lbl DONT;
+set desiredAngle rot;
+return;

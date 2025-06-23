@@ -24,6 +24,7 @@ public class Vehicle : MonoBehaviour
     public string mainCodePath;
     public string codeDirectory;
     public GameObject explosionPrefab;
+    public List<string> tappedKeys = new List<string>();
     // Start is called before the first frame update
     void Awake()
     {
@@ -84,6 +85,7 @@ public class Vehicle : MonoBehaviour
         schedulerDelay = 0;
         schedulerClock = 0;
         schedulerLine = 0;
+        tappedKeys = new List<string>();
     }
     public void RecalulateCenterOfMass(Vector2 newCenterOfMass)
     {
@@ -94,6 +96,16 @@ public class Vehicle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        foreach (KeyCode key in System.Enum.GetValues(typeof(KeyCode)))
+        {
+            if (Input.GetKeyDown(key))
+            {
+                if(!tappedKeys.Contains(key.ToString().ToLower()))
+                {
+                    tappedKeys.Add(key.ToString().ToLower());
+                }
+            }
+        }
         GetComponent<Rigidbody2D>().gravityScale = 4000000 / Mathf.Pow((transform.position.y + 2000), 2);
             codeLines[0]++;
             SendCommand(codeStack[0][codeLines[0] - 1]);
@@ -282,9 +294,10 @@ public class Vehicle : MonoBehaviour
         {
             string inputKey = tokens[1];
             string varToSave = tokens[2];
-            if(Input.GetKeyDown(inputKey))
+            if(tappedKeys.Contains(inputKey))
             {
                 SaveVariable(varToSave, 1);
+                tappedKeys.Remove(inputKey);
             }
             else
             {
