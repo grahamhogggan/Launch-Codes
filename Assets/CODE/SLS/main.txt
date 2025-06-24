@@ -1,0 +1,23 @@
+#telemetry#
+
+#main#
+
+#boot#
+LeftEngine bind a;
+RightEngine bind d;
+SRB-Engine-L startup;
+SRB-Engine-R startup;
+
+#scheduler#
+delay 5;
+SRB-L detach;
+SRB-R detach;
+delay 5;
+Core detach;
+UpperL bind a;
+UpperR bind d;
+delay 5;
+UpperStage detach;
+OrionEngine bind w;
+RCS-L bind a;
+RCS-R bind d;
