@@ -33,11 +33,9 @@ loop;
 
 lbl LANDING; 
 fetch GPS y altitude;
-print altitude;
 set desiredAngle 0;
 compare altitude 7800 close;
 branch close AUTOLAND;
-print waiting . . ;
 call StabilizeRotation;
 loop;
 input tab autoLand;
@@ -76,6 +74,7 @@ LanderEngine unbind;
 LanderEngine startup;
 lbl STABILIZE;
 call StabilizeRotation;
+
 #scheduler#;
 delay 10;
 call Stage1;

@@ -10,6 +10,7 @@ public class Detachment : Component
     public Vector2 centerOfMassChange;
     public GameObject[] DestructableParts;
     public GameObject[] ShowParts;
+    public Vector2 additionalEjectionVelocity;
     public override void InitializeComponent()
     {
         base.InitializeComponent();
@@ -40,14 +41,14 @@ public class Detachment : Component
             }
             transform.parent = null;
             Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();
-            rb.velocity = vehicleBody.velocity + (Vector2)(transform.position-vehicle.transform.position).normalized;
+            rb.velocity = vehicleBody.velocity + (Vector2)(transform.position-vehicle.transform.position-(Vector3)centerOfMassChange).normalized + additionalEjectionVelocity;
             vehicle.GetComponent<Vehicle>().RecalulateCenterOfMass(new Vector2(0,0));
+            Vector3 movement = vehicle.transform.TransformDirection(centerOfMassChange);
             foreach(Transform stillAttached in vehicle.transform)
             {
-                stillAttached.position+=vehicle.transform.TransformDirection(-1 * centerOfMassChange);
+                stillAttached.position-=movement;
             }
-            vehicleBody.MovePosition(vehicle.transform.position+vehicle.transform.TransformDirection((Vector3)centerOfMassChange));
-            vehicleBody.MoveRotation(vehicle.transform.rotation);
+            vehicleBody.position +=(Vector2)movement;
             foreach (GameObject obj in DestructableParts)
             {
                 Destroy(obj);

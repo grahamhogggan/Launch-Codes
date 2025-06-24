@@ -482,6 +482,7 @@ MonoBehaviour:
   centerOfMassChange: {x: 0, y: 0.25}
   DestructableParts: []
   ShowParts: []
+  additionalEjectionVelocity: {x: 5, y: 5}
 --- !u!1 &920059597910705177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,6 +1996,7 @@ MonoBehaviour:
   - {fileID: 5346730499635675873}
   ShowParts:
   - {fileID: 920059597910705177}
+  additionalEjectionVelocity: {x: 0, y: 0}
 --- !u!1 &2963845876337671753
 GameObject:
   m_ObjectHideFlags: 0
