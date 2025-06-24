@@ -1,0 +1,54 @@
+#StabilizeRotation#
+fetch AngleSensor angle currentAngle;
+compare currentAngle 180 isTooBig;
+branch isTooBig FIXIT;
+goto DONT;
+lbl FIXIT;
+Math subtract currentAngle 360;
+fetch Math result currentAngle;
+lbl DONT;
+Math subtract desiredAngle currentAngle;
+fetch Math result diff;
+compare 180 diff diffIsGood;
+branch diffIsGood FIX2;
+Math subtract diff 360;
+fetch Math result diff;
+lbl FIX2;
+compare diff -180 stillGood;
+branch stillGood GOOD;
+Math add diff 360;
+fetch Math result diff;
+lbl GOOD;
+Math multiply diff 0.1;
+fetch Math result diff;
+fetch VS angular angularVelocity;
+Math multiply angularVelocity -0.2;
+fetch Math result D; 
+Math add D diff;
+fetch Math result diff;
+compare diff 0.1 tiltedRight;
+compare -0.1 diff tiltedLeft;
+branch tiltedRight RIGHT;
+branch tiltedLeft LEFT;
+L-RCS-R bind d;
+L-RCS-R shutdown;
+L-RCS-L bind a;
+L-RCS-L shutdown; 
+return;
+lbl LEFT;
+L-RCS-L bind a;
+L-RCS-L shutdown; 
+L-RCS-R unbind;
+
+Math subtract 0 diff;
+fetch Math result diff;
+L-RCS-R set diff;
+return;
+
+lbl RIGHT;
+L-RCS-R bind d;
+L-RCS-R shutdown; 
+L-RCS-L unbind; 
+
+L-RCS-L set diff;
+return;

@@ -5,4 +5,5 @@ CsmEngine bind w;
 C-RCS-L bind a;
 C-RCS-R bind d;
 Stage2 bind tab;
+set coasting 1;
 return;

@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AngleSensor : Component
+public class PositionUnit : Component
 {
-    public float angle;
+    private Vector3 position;
     public override void InitializeComponent()
     {
         base.InitializeComponent();
     }
     public override void UpdateComponent(float deltaTime)
     {
-        angle = transform.rotation.eulerAngles.z;
+       position = transform.position;
     }
     public override float FetchVar(string varName)
     {
-        if (varName == "angle") return angle;
+        if (varName == "x") return position.x;
+        if (varName == "y") return position.y;
         return 0;
     }
 }
