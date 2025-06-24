@@ -12,13 +12,13 @@ Featuring these rockets:
 >Falcon Heavy,  
 Starship,   
 New Glenn,  
-Saturn V
+Saturn V,  
+SLS  
 >
 These Features Coming soon (hopefully):  
   
 New Vehicles:  
->SLS,  
-Falcon 9,    
+>Falcon 9,    
 Soyuz,  
   
 New Code Features:  
@@ -30,8 +30,3 @@ New Vehicle Components:
 Gravity Sensor  
 Array Module  
 Improved Math Module  
-  
-Visual Upgrades:  
->Engines  
-Better test environment  
-  
