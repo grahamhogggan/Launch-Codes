@@ -6,7 +6,12 @@ public class Engine : Component
 {
     public float thrust;
     public float actualThrust;
+    public GameObject landingDustFX;
+    private GameObject landingDustInstant;
+    private float LDDT;
+    #nullable enable
     private string? bindKey = null;
+    #nullable disable
     public AudioSource sound;
 
     public GameObject indicator;
@@ -14,6 +19,12 @@ public class Engine : Component
     {
         base.InitializeComponent();
         actualThrust = 0;
+        if(landingDustFX!=null)
+        {
+            landingDustInstant = Instantiate(landingDustFX, transform.position, Quaternion.identity);
+            landingDustInstant.SetActive(false);
+            LDDT = 0;
+        }
     }
     public override void UpdateComponent(float deltaTime)
     {
@@ -35,6 +46,23 @@ public class Engine : Component
             {
                 sound.Play();
             }
+            RaycastHit2D hitted = Physics2D.Raycast(transform.position, -1 * transform.up, 100, LayerMask.GetMask("Default"));
+            if(landingDustFX!=null&&hitted.collider!=null&&hitted.distance<10)
+            {
+                LDDT += deltaTime;
+                if(deltaTime>0.05)
+                {
+                    foreach(ParticleSystem ps in landingDustInstant.GetComponentsInChildren<ParticleSystem>())
+                    ps.Emit((int)(deltaTime/0.05));
+                }
+                else if(LDDT>0.05)
+                {
+                    foreach(ParticleSystem ps in landingDustInstant.GetComponentsInChildren<ParticleSystem>())
+                    ps.Emit(1);
+                    LDDT = 0;
+                }
+
+            }
         }
         else
         {
@@ -42,7 +70,16 @@ public class Engine : Component
             if(sound!=null)
             sound.Stop();
         }
-
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -1 * transform.up, 100, LayerMask.GetMask("Default"));
+            if(landingDustFX!=null&&hit.collider!=null&&hit.distance<10)
+            {
+                if(landingDustFX!=null)
+                {
+                    landingDustInstant.transform.position = hit.point;
+                    landingDustInstant.transform.rotation = Quaternion.Euler(0,0,-1 * Vector2.SignedAngle(hit.normal, Vector2.up));
+                    landingDustInstant.SetActive(true);
+                }
+            }
         vehicleBody.AddForce(transform.up * actualThrust * deltaTime, ForceMode2D.Force);
         float angle = Vector3.SignedAngle(transform.up, vehicle.transform.position - transform.position, transform.forward) * Mathf.PI / 180;
         float moment = Vector3.Distance(transform.position, vehicle.transform.position) * Mathf.Sin(angle);

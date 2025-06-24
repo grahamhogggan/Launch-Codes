@@ -12,7 +12,7 @@ SRB-Engine-R startup;
 delay 5;
 SRB-L detach;
 SRB-R detach;
-delay 5;
+delay 2;
 Core detach;
 UpperL bind a;
 UpperR bind d;
