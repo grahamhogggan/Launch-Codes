@@ -22,7 +22,7 @@ lbl GOOD;
 Math multiply diff 0.1;
 fetch Math result diff;
 fetch VS angular angularVelocity;
-Math multiply angularVelocity -0.2;
+Math multiply angularVelocity -0.3;
 fetch Math result D; 
 Math add D diff;
 fetch Math result diff;

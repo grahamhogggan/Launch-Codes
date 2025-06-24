@@ -330,6 +330,51 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &459605461751878870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7828807423039995357}
+  - component: {fileID: 6420113548217190096}
+  m_Layer: 0
+  m_Name: PosiitonUnit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7828807423039995357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459605461751878870}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.1, y: 8.91, z: 0.06875757}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9006620428476297351}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6420113548217190096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459605461751878870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35aa2bae9d64c346885db47d55a33f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Identifier: GPS
 --- !u!1 &1146038513860192040
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,6 +989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Identifier: AngleSensor
+  angle: 0
 --- !u!1 &4327300251232950640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,6 +1735,8 @@ MonoBehaviour:
   - {fileID: 4327300251232950640}
   src: {fileID: 2166787411664950400}
   centerOfMassChange: {x: 0, y: 0}
+  DestructableParts: []
+  ShowParts: []
 --- !u!1 &5677554898273585802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1838,6 +1886,8 @@ MonoBehaviour:
   - {fileID: 7254478744278170484}
   src: {fileID: 2166787411664950400}
   centerOfMassChange: {x: 0, y: 0}
+  DestructableParts: []
+  ShowParts: []
 --- !u!1 &5855165563450678445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,6 +2646,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7828807423039995357}
   - {fileID: 5719477447599628309}
   - {fileID: 5366891877056641951}
   - {fileID: 8152115928177046644}
@@ -2657,12 +2708,14 @@ MonoBehaviour:
   vehicleIdentifier: Falcon-Heavy
   Components: []
   commandClockSpeed: 1
+  telemetrySpeed: 0.5
   codeFiles:
   - 
   centerOfMassOffset: {x: 0, y: -1}
   mainCodePath: 
   codeDirectory: 
   explosionPrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  tappedKeys: []
 --- !u!82 &2166787411664950400
 AudioSource:
   m_ObjectHideFlags: 0

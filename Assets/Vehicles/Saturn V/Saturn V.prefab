@@ -1005,7 +1005,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b84283c2d1e40104b99fb51640749117, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fdd219d1f7459174893b2ed11c3ad316, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1465,7 +1465,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b84283c2d1e40104b99fb51640749117, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fdd219d1f7459174893b2ed11c3ad316, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2275,6 +2275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Identifier: AngleSensor
+  angle: 0
 --- !u!1 &4327300251232950640
 GameObject:
   m_ObjectHideFlags: 0
@@ -3603,7 +3604,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b84283c2d1e40104b99fb51640749117, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fdd219d1f7459174893b2ed11c3ad316, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4277,7 +4278,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b84283c2d1e40104b99fb51640749117, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fdd219d1f7459174893b2ed11c3ad316, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

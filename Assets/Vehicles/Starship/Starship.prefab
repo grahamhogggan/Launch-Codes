@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &26084108066143522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8025859742714731315}
+  - component: {fileID: 2341298582955107880}
+  m_Layer: 0
+  m_Name: PosiitonUnit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8025859742714731315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26084108066143522}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.047, y: 10.009, z: 0.06875757}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9006620428476297351}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2341298582955107880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26084108066143522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f35aa2bae9d64c346885db47d55a33f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Identifier: GPS
 --- !u!1 &164747570354383233
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +481,8 @@ MonoBehaviour:
   - {fileID: 5240959585624917742}
   src: {fileID: 4639952315900352069}
   centerOfMassChange: {x: 0, y: 7.57}
+  DestructableParts: []
+  ShowParts: []
 --- !u!61 &3917717028074409212
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1420,6 +1467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Identifier: AngleSensor
+  angle: 0
 --- !u!1 &4327300251232950640
 GameObject:
   m_ObjectHideFlags: 0
@@ -3117,6 +3165,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8025859742714731315}
   - {fileID: 5366891877056641951}
   - {fileID: 5918382768592842967}
   - {fileID: 1355626346877166864}
@@ -3177,12 +3226,14 @@ MonoBehaviour:
   vehicleIdentifier: Starship
   Components: []
   commandClockSpeed: 1
+  telemetrySpeed: 0.5
   codeFiles:
   - 
   centerOfMassOffset: {x: 0, y: 4.5}
   mainCodePath: 
   codeDirectory: 
   explosionPrefab: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  tappedKeys: []
 --- !u!1 &8711971067116553774
 GameObject:
   m_ObjectHideFlags: 0
