@@ -13,17 +13,11 @@ Featuring these rockets:
 Starship,   
 New Glenn,  
 Saturn V,  
-SLS  
+SLS,  
+Falcon 9,     
+Soyuz,  
 >
 These Features Coming soon (hopefully):  
-  
-New Vehicles:  
->Falcon 9,    
-Soyuz,  
-  
-New Code Features:  
->Better variable work  
-Better input handling  
   
 New Vehicle Components:  
 >Landing legs  
