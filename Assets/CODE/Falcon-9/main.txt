@@ -1,0 +1,13 @@
+#telemetry#
+
+#main#
+
+#boot#
+MainEngine bind w;
+
+#scheduler#
+delay 10;
+Booster detach;
+CenterDraco bind w;
+LeftDraco bind a;
+RightDraco bind d;
