@@ -1,0 +1,5 @@
+#detach#
+Booster detach;
+CenterDraco bind w;
+LeftDraco bind a;
+RightDraco bind d;

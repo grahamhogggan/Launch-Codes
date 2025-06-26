@@ -1,13 +1,10 @@
 #telemetry#
 
 #main#
-
+tap tab stage;
+callif stage detach;
 #boot#
 MainEngine bind w;
-
 #scheduler#
 delay 10;
-Booster detach;
-CenterDraco bind w;
-LeftDraco bind a;
-RightDraco bind d;
+call detach;

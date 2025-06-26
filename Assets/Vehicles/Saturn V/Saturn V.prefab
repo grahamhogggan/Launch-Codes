@@ -232,8 +232,10 @@ MonoBehaviour:
   Identifier: CenterEngine
   thrust: 600
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
-  landingDustInstant: {fileID: 0}
   sound: {fileID: 3083350228025902082}
   indicator: {fileID: 978727851943521261}
 --- !u!82 &3083350228025902082
@@ -1080,8 +1082,10 @@ MonoBehaviour:
   Identifier: C-RCS-R
   thrust: 50
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 0}
-  landingDustInstant: {fileID: 0}
   sound: {fileID: 4732764828023454519}
   indicator: {fileID: 6712924292401373383}
 --- !u!82 &4732764828023454519
@@ -1542,8 +1546,10 @@ MonoBehaviour:
   Identifier: L-RCS-R
   thrust: 50
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 0}
-  landingDustInstant: {fileID: 0}
   sound: {fileID: 4020814755353386260}
   indicator: {fileID: 5780785848579006630}
 --- !u!82 &4020814755353386260
@@ -1874,8 +1880,10 @@ MonoBehaviour:
   Identifier: CenterLeftEngine
   thrust: 600
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
-  landingDustInstant: {fileID: 0}
   sound: {fileID: 3339873616586150424}
   indicator: {fileID: 4069616203710661869}
 --- !u!82 &3339873616586150424
@@ -2602,8 +2610,10 @@ MonoBehaviour:
   Identifier: RightEngine
   thrust: 300
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
-  landingDustInstant: {fileID: 0}
   sound: {fileID: 8790305978424392358}
   indicator: {fileID: 6466771108109132151}
 --- !u!82 &8790305978424392358
@@ -2850,8 +2860,10 @@ MonoBehaviour:
   Identifier: CenterRightEngine
   thrust: 600
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
-  landingDustInstant: {fileID: 0}
   sound: {fileID: 7301628408419860438}
   indicator: {fileID: 3005937269710172276}
 --- !u!82 &7301628408419860438
@@ -3606,8 +3618,10 @@ MonoBehaviour:
   Identifier: L-RCS-L
   thrust: 50
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 0}
-  landingDustInstant: {fileID: 0}
   sound: {fileID: 3151230822905600757}
   indicator: {fileID: 90354003957728353}
 --- !u!82 &3151230822905600757
@@ -4366,8 +4380,10 @@ MonoBehaviour:
   Identifier: C-RCS-L
   thrust: 50
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 0}
-  landingDustInstant: {fileID: 0}
   sound: {fileID: 8461367103613190478}
   indicator: {fileID: 9146347189796081645}
 --- !u!82 &8461367103613190478
@@ -4796,8 +4812,10 @@ MonoBehaviour:
   Identifier: LeftEngine
   thrust: 300
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
-  landingDustInstant: {fileID: 0}
   sound: {fileID: 7121632576918058378}
   indicator: {fileID: 1611024607037024569}
 --- !u!82 &7121632576918058378
@@ -5044,8 +5062,10 @@ MonoBehaviour:
   Identifier: CsmEngine
   thrust: 600
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
-  landingDustInstant: {fileID: 0}
   sound: {fileID: 7135172298643385219}
   indicator: {fileID: 2097287733756041573}
 --- !u!82 &7135172298643385219
@@ -5443,8 +5463,10 @@ MonoBehaviour:
   Identifier: LanderEngine
   thrust: 1200
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
-  landingDustInstant: {fileID: 0}
   sound: {fileID: 7789898146825578458}
   indicator: {fileID: 6892541718467031394}
 --- !u!82 &7789898146825578458

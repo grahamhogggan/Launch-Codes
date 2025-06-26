@@ -171,6 +171,24 @@ public class Vehicle : MonoBehaviour
                 }
             }
         }
+        if (tokens[0] == "callif")
+        {
+            string decisionMaker = tokens[1];
+            if(variables.ContainsKey(decisionMaker)&&variables[decisionMaker] > 0)
+            {
+                string functionCalled = tokens[2];
+                foreach (string asset in codeFiles)
+                {
+                    if (asset.Split("#").Length < 3) continue;
+                    if (asset.Split("#")[1] == functionCalled)
+                    {
+                        codeStack.Insert(0, CreateMethod(asset));
+                        codeLines.Insert(0, 0);
+                    }
+                }
+            }
+
+        }
         if (tokens[0] == "fetch")
         {
             Component getter = GetVehicleComponent(tokens[1]);

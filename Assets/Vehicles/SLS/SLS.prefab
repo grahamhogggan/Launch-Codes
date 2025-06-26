@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5405956871052312996}
   - component: {fileID: 6527379075697019838}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 758468376073870198}
   - component: {fileID: 2921165346199684678}
   - component: {fileID: 695849881888610086}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SLS_SRB_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,6 +486,9 @@ MonoBehaviour:
   Identifier: SRB-Engine-R
   thrust: 2000
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 6466872013577268407}
   indicator: {fileID: 3705360856046644595}
@@ -863,6 +866,9 @@ MonoBehaviour:
   Identifier: RCS-R
   thrust: 50
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 0}
   sound: {fileID: 4020814755353386260}
   indicator: {fileID: 7503544165408882709}
@@ -1056,7 +1062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7599342540238550078}
   - component: {fileID: 2265605429273334999}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Medium_Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1141,7 +1147,7 @@ GameObject:
   - component: {fileID: 6691170169382532800}
   - component: {fileID: 7354808158227110196}
   - component: {fileID: 5999059004517373350}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SLS_CORE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1251,7 +1257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4905639474048556079}
   - component: {fileID: 1568121807986267655}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1670,6 +1676,9 @@ MonoBehaviour:
   Identifier: RightEngine
   thrust: 1000
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 8790305978424392358}
   indicator: {fileID: 7567054274819801862}
@@ -1782,7 +1791,7 @@ GameObject:
   - component: {fileID: 4723763997723221249}
   - component: {fileID: 1692906921965115829}
   - component: {fileID: 4065449764761867415}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Orion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2001,7 +2010,7 @@ GameObject:
   m_Component:
   - component: {fileID: 150758511021411560}
   - component: {fileID: 9128442985397461007}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2503,6 +2512,9 @@ MonoBehaviour:
   Identifier: UpperR
   thrust: 600
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 6848310899385514923}
   indicator: {fileID: 8056900049064024225}
@@ -2978,6 +2990,9 @@ MonoBehaviour:
   Identifier: RCS-L
   thrust: 50
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 0}
   sound: {fileID: 3151230822905600757}
   indicator: {fileID: 9171035173677994328}
@@ -3087,7 +3102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5078164692509254173}
   - component: {fileID: 1230421740604320933}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3439,6 +3454,9 @@ MonoBehaviour:
   Identifier: SRB-Engine-L
   thrust: 2000
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 3466091662513460262}
   indicator: {fileID: 5581769026299459015}
@@ -3678,7 +3696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6832756198118880816}
   - component: {fileID: 9160942901812685678}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Medium_Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3762,7 +3780,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3637413521792558482}
   - component: {fileID: 7461922895858568395}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4082,6 +4100,9 @@ MonoBehaviour:
   Identifier: LeftEngine
   thrust: 1000
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 7121632576918058378}
   indicator: {fileID: 283859057846897608}
@@ -4191,7 +4212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6977115796080267272}
   - component: {fileID: 4713740337301772172}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4276,7 +4297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1637889540220422540}
   - component: {fileID: 1676099612770461226}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4498,6 +4519,9 @@ MonoBehaviour:
   Identifier: UpperL
   thrust: 600
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 7135172298643385219}
   indicator: {fileID: 6022648818369699054}
@@ -4607,7 +4631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3889515972622721231}
   - component: {fileID: 8029247343888270075}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PosiitonUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4758,7 +4782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7921540802410896173}
   - component: {fileID: 5834211489655954975}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Medium_Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4844,7 +4868,7 @@ GameObject:
   - component: {fileID: 7882137628165713376}
   - component: {fileID: 5503458823588155560}
   - component: {fileID: 4719025781795152654}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SLS_SRB_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5131,6 +5155,9 @@ MonoBehaviour:
   Identifier: OrionEngine
   thrust: 1200
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 7789898146825578458}
   indicator: {fileID: 2371218509003651259}
@@ -5244,7 +5271,7 @@ GameObject:
   - component: {fileID: 2262701584637662774}
   - component: {fileID: 1508771180986265015}
   - component: {fileID: 6169741718887931063}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SLS_UPPER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5484,7 +5511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2209927065574472738}
   - component: {fileID: 6079993197766580252}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

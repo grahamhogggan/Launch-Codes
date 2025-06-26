@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1733458682212944554}
   - component: {fileID: 5563292025583905401}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Medium_Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,6 +483,9 @@ MonoBehaviour:
   Identifier: BoosterCenterEngine
   thrust: 1200
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 6988586504855769588}
   indicator: {fileID: 1493006135926273787}
@@ -695,7 +698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5313916107643128701}
   - component: {fileID: 6910687193839944994}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Blue Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2000118310608123122}
   - component: {fileID: 8190130352202787337}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Blue Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5193118082815201247}
   - component: {fileID: 8397282522921374350}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Medium_Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1580,6 +1583,9 @@ MonoBehaviour:
   Identifier: RightEngine
   thrust: 400
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 8790305978424392358}
   indicator: {fileID: 1649726126482430137}
@@ -2009,6 +2015,9 @@ MonoBehaviour:
   Identifier: BoosterRightEngine
   thrust: 600
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 1634729746892613653}
   indicator: {fileID: 1309701562702817839}
@@ -2556,7 +2565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 528672795898425415}
   - component: {fileID: 9155494034713514522}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Blue Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2640,7 +2649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2086962911785677865}
   - component: {fileID: 5964843842259824651}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PosiitonUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2823,6 +2832,9 @@ MonoBehaviour:
   Identifier: LeftEngine
   thrust: 400
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 7121632576918058378}
   indicator: {fileID: 44746270304124373}
@@ -3170,6 +3182,9 @@ MonoBehaviour:
   Identifier: BoosterLeftEngine
   thrust: 600
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 3092250568101927039}
   indicator: {fileID: 7172169402864071107}

@@ -193,6 +193,9 @@ MonoBehaviour:
   Identifier: CenterEngine
   thrust: 600
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 3083350228025902082}
   indicator: {fileID: 2895404562735507964}
@@ -774,6 +777,9 @@ MonoBehaviour:
   Identifier: BoosterCenterEngine
   thrust: 1200
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 6988586504855769588}
   indicator: {fileID: 1095522286731413592}
@@ -1787,6 +1793,9 @@ MonoBehaviour:
   Identifier: RightEngine
   thrust: 300
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 8790305978424392358}
   indicator: {fileID: 7812393914822914515}
@@ -2216,6 +2225,9 @@ MonoBehaviour:
   Identifier: BoosterRightEngine
   thrust: 600
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 1634729746892613653}
   indicator: {fileID: 5669182016631453762}
@@ -2873,6 +2885,9 @@ MonoBehaviour:
   Identifier: LeftEngine
   thrust: 300
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 7121632576918058378}
   indicator: {fileID: 7401744957996713626}
@@ -3388,6 +3403,9 @@ MonoBehaviour:
   Identifier: BoosterLeftEngine
   thrust: 600
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 3092250568101927039}
   indicator: {fileID: 1925852221967126308}

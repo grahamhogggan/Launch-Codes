@@ -148,6 +148,9 @@ MonoBehaviour:
   Identifier: MainEngine
   thrust: 900
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 1551968535410756737}
   indicator: {fileID: 4702493527978240426}
@@ -841,6 +844,9 @@ MonoBehaviour:
   Identifier: LeftDraco
   thrust: 200
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 603507235049265085}
   indicator: {fileID: 6876775397882374962}
@@ -1681,6 +1687,9 @@ MonoBehaviour:
   Identifier: CenterDraco
   thrust: 200
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 1060645180157155441}
   indicator: {fileID: 8921670531690917566}
@@ -2685,6 +2694,9 @@ MonoBehaviour:
   Identifier: RightDraco
   thrust: 200
   actualThrust: 0
+  shipLayer:
+    serializedVersion: 2
+    m_Bits: 8
   landingDustFX: {fileID: 6273694994189199792, guid: 9f3adc0d7e204f547810c4d73e125b91, type: 3}
   sound: {fileID: 7255293147581638734}
   indicator: {fileID: 2780867217101213583}

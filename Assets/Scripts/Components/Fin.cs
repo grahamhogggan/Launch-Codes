@@ -6,8 +6,10 @@ public class Fin : Component
 {
     public float finPower;
     public float rotationalSize;
+    #nullable enable
     private string? keyF;
     private string? keyB;
+    #nullable disable
     public float rotationAngle;
     private Quaternion homeRotation;
     Vector3 forceVector;

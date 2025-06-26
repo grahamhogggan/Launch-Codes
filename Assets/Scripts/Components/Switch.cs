@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Switch : Component
 {
+    #nullable enable
     private string? key;
+    #nullable disable
     public override void InitializeComponent()
     {
         base.InitializeComponent();

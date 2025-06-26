@@ -19,7 +19,7 @@ public class DampedCameraFollower : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(target.transform.position.x - rb.velocity.x * damp, target.transform.position.y - rb.velocity.y * damp, transform.position.z);
-        GetComponent<Camera>().orthographicSize -= Input.GetAxis("Mouse ScrollWheel")*10;
+        GetComponent<Camera>().orthographicSize -= Input.GetAxis("Mouse ScrollWheel")*GetComponent<Camera>().orthographicSize;
 
     }
 }

@@ -6,6 +6,7 @@ public class Engine : Component
 {
     public float thrust;
     public float actualThrust;
+    public LayerMask shipLayer;
     public GameObject landingDustFX;
     private GameObject landingDustInstant;
     private float LDDT;
@@ -46,7 +47,7 @@ public class Engine : Component
             {
                 sound.Play();
             }
-            RaycastHit2D hitted = Physics2D.Raycast(transform.position, -1 * transform.up, 100, LayerMask.GetMask("Default"));
+            RaycastHit2D hitted = Physics2D.Raycast(transform.position, -1 * transform.up, 100, ~shipLayer);
             if(landingDustFX!=null&&hitted.collider!=null&&hitted.distance<10)
             {
                 LDDT += deltaTime;
@@ -70,7 +71,7 @@ public class Engine : Component
             if(sound!=null)
             sound.Stop();
         }
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, -1 * transform.up, 100, LayerMask.GetMask("Default"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -1 * transform.up, 100, ~shipLayer);
             if(landingDustFX!=null&&hit.collider!=null&&hit.distance<10)
             {
                 if(landingDustFX!=null)
